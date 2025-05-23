@@ -7,7 +7,7 @@ export const theme = {
     
     // Neutral colors
     background: '#FFFFFF',
-    surface: '#F2F2F7',
+    surface: '#E5E5EA',
     text: '#000000',
     textLight: '#666666',
     
