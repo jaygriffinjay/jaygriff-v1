@@ -1,14 +1,7 @@
 import styled from 'styled-components'
 
 const StyledHeading = styled.h1`
-  color: ${props => {
-    console.log('Theme values:', {
-      fontSize: props.theme.typography.fontSize,
-      variant: props.$variant,
-      h2Size: props.theme.typography.fontSize['3xl']
-    });
-    return props.theme.colors.text;
-  }};
+  color: ${props => props.theme.colors.text};
   font-family: ${props => props.theme.typography.fontFamily.heading};
   font-weight: ${props => props.theme.typography.fontWeight.bold};
   line-height: ${props => props.theme.typography.lineHeight.tight};

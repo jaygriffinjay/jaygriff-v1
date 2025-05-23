@@ -1,13 +1,28 @@
+import styled from 'styled-components'
 import { Card, Container, Heading, Text, Link, List } from '../components'
+import meImage from '../assets/images/me.jpg'
+
+const ProfileImage = styled.img`
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: ${props => props.theme.borderRadius.lg};
+  margin: 2rem auto;
+  display: block;
+  box-shadow: ${props => props.theme.shadows.md};
+  transition: transform ${props => props.theme.transitions.normal};
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+`
 
 function About() {
   return (
     <Container>
       <Card>
-        <Heading as="h1" variant="h1">About Me</Heading>
-        <Text variant="lead">
-          I'm a software developer focused on building modern, user-friendly web applications.
-        </Text>
+
+        <ProfileImage src={meImage} alt="Jay Griffin" />
 
         <div style={{ marginTop: '2rem' }}>
           <Heading as="h2" variant="h2">Background</Heading>

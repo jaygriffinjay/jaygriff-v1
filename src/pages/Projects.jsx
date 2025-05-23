@@ -1,4 +1,24 @@
+import styled from 'styled-components'
 import { Card, Container, Heading, Text, Link, List } from '../components'
+import favicon from '../assets/logos/favicon.svg'
+import golfballgarageLogo from '../assets/logos/golfballgaragelogo.svg'
+
+const ProjectLogo = styled.img`
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  transition: transform ${props => props.theme.transitions.normal};
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`
+
+const ProjectCard = styled(Card)`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`
 
 function Projects() {
   return (
@@ -13,7 +33,8 @@ function Projects() {
           <Heading as="h2" variant="h2">Active Projects</Heading>
           <List listStyle="none" spacing="loose" style={{ marginTop: '1rem' }}>
             <li>
-              <Card>
+              <ProjectCard>
+                <ProjectLogo src={favicon} alt="Personal Website Logo" />
                 <Heading as="h3" variant="h3">
                   <Link href="/projects/meta">This Website</Link>
                 </Heading>
@@ -27,11 +48,12 @@ function Projects() {
                     <Text variant="small"> - Visual documentation of all UI components</Text>
                   </li>
                 </List>
-              </Card>
+              </ProjectCard>
             </li>
 
             <li>
-              <Card>
+              <ProjectCard>
+                <ProjectLogo src={golfballgarageLogo} alt="Golf Ball Garage Logo" />
                 <Heading as="h3" variant="h3">
                   <Link href="/projects/golfballgarage">Golf Ball Garage</Link>
                 </Heading>
@@ -44,7 +66,7 @@ function Projects() {
                     Visit Site →
                   </Link>
                 </div>
-              </Card>
+              </ProjectCard>
             </li>
           </List>
         </div>

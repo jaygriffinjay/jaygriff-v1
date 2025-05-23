@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Heading from './typography/Heading'
-import Link from './typography/Link'
+import { Link as RouterLink } from 'react-router-dom'
 import Breadcrumb from './Breadcrumb'
 import { useLocation } from 'react-router-dom'
 
@@ -48,7 +48,7 @@ const NavRow = styled.div`
   }
 `
 
-const NameLink = styled(Link)`
+const NameLink = styled(RouterLink)`
   text-decoration: none;
   transition: all ${props => props.theme.transitions.normal};
   
@@ -95,7 +95,7 @@ const NavLinks = styled.div`
   }
 `
 
-const NavItem = styled(Link)`
+const NavItem = styled(RouterLink)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,6 +106,7 @@ const NavItem = styled(Link)`
   min-width: auto;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
 
   h4 {
     color: ${props => props.theme.colors.textLight};
@@ -191,31 +192,31 @@ const Navbar = () => {
       </BreadcrumbWrapper>
       <NavContent>
         <NavRow>
-          <NameLink href="/">
+          <NameLink to="/">
             <Name>Jay Griffin</Name>
           </NameLink>
           <DesktopNav>
-            <NavItem href="/about">
+            <NavItem to="/about">
               <Heading as="h4" variant="h4">About</Heading>
             </NavItem>
-            <NavItem href="/pages">
-              <Heading as="h4" variant="h4">Pages</Heading>
-            </NavItem>
-            <NavItem href="/projects">
+            <NavItem to="/projects">
               <Heading as="h4" variant="h4">Projects</Heading>
+            </NavItem>
+            <NavItem to="/pages">
+              <Heading as="h4" variant="h4">Pages</Heading>
             </NavItem>
           </DesktopNav>
         </NavRow>
         <Divider />
         <MobileNav>
-          <NavItem href="/about">
+          <NavItem to="/about">
             <Heading as="h4" variant="h4">About</Heading>
           </NavItem>
-          <NavItem href="/pages">
-            <Heading as="h4" variant="h4">Pages</Heading>
-          </NavItem>
-          <NavItem href="/projects">
+          <NavItem to="/projects">
             <Heading as="h4" variant="h4">Projects</Heading>
+          </NavItem>
+          <NavItem to="/pages">
+            <Heading as="h4" variant="h4">Pages</Heading>
           </NavItem>
         </MobileNav>
       </NavContent>
