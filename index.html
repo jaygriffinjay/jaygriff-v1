@@ -5,6 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>React App</title>
+    <script>
+      // Immediately set theme based on localStorage or system preference
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isDarkMode = savedTheme === 'dark' || (!savedTheme && prefersDark);
+        
+        // Apply theme immediately
+        if (isDarkMode) {
+          document.documentElement.classList.add('dark-mode');
+          document.body.style.backgroundColor = '#000000';
+          document.body.style.color = '#FFFFFF';
+        } else {
+          document.documentElement.classList.remove('dark-mode');
+          document.body.style.backgroundColor = '#FFFFFF';
+          document.body.style.color = '#000000';
+        }
+      })();
+    </script>
+    <style>
+      /* Critical CSS that runs before React loads */
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transition: background-color 250ms ease, color 250ms ease;
+      }
+
+      /* Dark mode styles */
+      .dark-mode body {
+        background-color: #000000;
+        color: #FFFFFF;
+      }
+
+      /* Light mode styles (default) */
+      body {
+        background-color: #FFFFFF;
+        color: #000000;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

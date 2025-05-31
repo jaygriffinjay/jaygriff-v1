@@ -11,6 +11,15 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #FFFFFF; /* Light mode default */
+  color: #000000; /* Light mode default */
+  transition: background-color 250ms ease, color 250ms ease;
+}
+
+/* Dark mode styles */
+.dark-mode body {
+  background-color: #000000;
+  color: #FFFFFF;
 }
 
 /* Make images easier to work with */

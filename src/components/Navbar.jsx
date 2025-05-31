@@ -2,7 +2,9 @@ import styled from 'styled-components'
 import Heading from './typography/Heading'
 import { Link as RouterLink } from 'react-router-dom'
 import Breadcrumb from './Breadcrumb'
+import ThemeToggle from './ThemeToggle'
 import { useLocation } from 'react-router-dom'
+import { useTheme } from '../contexts/ThemeContext'
 
 const BREAKPOINT = '768px'
 
@@ -45,6 +47,8 @@ const NavRow = styled.div`
 
   @media (max-width: ${BREAKPOINT}) {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: ${props => props.theme.spacing.sm};
   }
 `
 
@@ -81,7 +85,7 @@ const Name = styled.h1`
 const Divider = styled.div`
   width: 100%;
   height: 1px;
-  background-color: ${props => props.theme.colors.surface};
+  background-color: ${props => props.$isDarkMode ? 'rgba(255, 255, 255, 0.3)' : props.theme.colors.surface};
   margin: 0;
 `
 
@@ -165,36 +169,54 @@ const NavTop = styled.div`
 
 const Navbar = () => {
   const location = useLocation()
-  
-  // Generate breadcrumb items based on current path
+  const { isDarkMode } = useTheme()
+
+  // Function to generate breadcrumb items based on the current path
   const getBreadcrumbItems = () => {
     const pathSegments = location.pathname.split('/').filter(Boolean)
     const items = [{ label: 'Home', path: '/' }]
-    
+
+    if (pathSegments.length === 0) return items
+
     let currentPath = ''
-    pathSegments.forEach(segment => {
+    pathSegments.forEach((segment, index) => {
       currentPath += `/${segment}`
-      // Convert segment to title case and remove hyphens
-      const label = segment
+      // Convert segment to title case and handle special cases
+      let label = segment
         .split('-')
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ')
+      
+      // Special case for meta project routes
+      if (segment === 'meta' && pathSegments[index + 1] === 'components') {
+        label = 'Component Library'
+      } else if (segment === 'meta') {
+        label = 'This Website'
+      }
+
       items.push({ label, path: currentPath })
     })
-    
+
     return items
   }
-
+  
   return (
     <NavWrapper>
       <BreadcrumbWrapper>
         <Breadcrumb items={getBreadcrumbItems()} />
       </BreadcrumbWrapper>
+      
       <NavContent>
         <NavRow>
           <NameLink to="/">
             <Name>Jay Griffin</Name>
           </NameLink>
+          <ThemeToggle />
+        </NavRow>
+        
+        <Divider $isDarkMode={isDarkMode} />
+        
+        <NavRow>
           <DesktopNav>
             <NavItem to="/about">
               <Heading as="h4" variant="h4">About</Heading>
@@ -206,19 +228,19 @@ const Navbar = () => {
               <Heading as="h4" variant="h4">Pages</Heading>
             </NavItem>
           </DesktopNav>
+          
+          <MobileNav>
+            <NavItem to="/about">
+              <Heading as="h4" variant="h4">About</Heading>
+            </NavItem>
+            <NavItem to="/projects">
+              <Heading as="h4" variant="h4">Projects</Heading>
+            </NavItem>
+            <NavItem to="/pages">
+              <Heading as="h4" variant="h4">Pages</Heading>
+            </NavItem>
+          </MobileNav>
         </NavRow>
-        <Divider />
-        <MobileNav>
-          <NavItem to="/about">
-            <Heading as="h4" variant="h4">About</Heading>
-          </NavItem>
-          <NavItem to="/projects">
-            <Heading as="h4" variant="h4">Projects</Heading>
-          </NavItem>
-          <NavItem to="/pages">
-            <Heading as="h4" variant="h4">Pages</Heading>
-          </NavItem>
-        </MobileNav>
       </NavContent>
     </NavWrapper>
   )

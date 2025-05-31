@@ -1,4 +1,4 @@
-export const theme = {
+const getTheme = (isDarkMode) => ({
   colors: {
     // Primary brand colors
     primary: '#007AFF',
@@ -6,10 +6,10 @@ export const theme = {
     accent: '#FF2D55',
     
     // Neutral colors
-    background: '#FFFFFF',
-    surface: '#E5E5EA',
-    text: '#000000',
-    textLight: '#666666',
+    background: isDarkMode ? '#000000' : '#FFFFFF',
+    surface: isDarkMode ? '#1C1C1E' : '#E5E5EA',
+    text: isDarkMode ? '#FFFFFF' : '#000000',
+    textLight: isDarkMode ? '#EBEBF5' : '#666666',
     
     // Semantic colors
     success: '#34C759',
@@ -79,9 +79,9 @@ export const theme = {
   
   // Shadows
   shadows: {
-    sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
-    md: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
-    lg: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
+    sm: isDarkMode ? '0 1px 2px 0 rgb(255 255 255 / 0.05)' : '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+    md: isDarkMode ? '0 4px 6px -1px rgb(255 255 255 / 0.1)' : '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+    lg: isDarkMode ? '0 10px 15px -3px rgb(255 255 255 / 0.1)' : '0 10px 15px -3px rgb(0 0 0 / 0.1)',
   },
   
   // Transitions
@@ -121,4 +121,6 @@ export const theme = {
     xl: '1280px',
     '2xl': '1536px',
   },
-} 
+})
+
+export { getTheme } 
