@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { LinkProps, StyledProps } from '../../types'
 
-const StyledLink = styled.a`
+const StyledLink = styled.a<StyledProps>`
   color: ${props => props.theme.colors.primary};
   text-decoration: none;
   transition: all ${props => props.theme.transitions.normal};
@@ -28,7 +29,7 @@ const StyledLink = styled.a`
   `}
 `
 
-const Link = ({ href, variant = 'primary', children, ...props }) => {
+const Link = ({ href, variant = 'primary', children, ...props }: LinkProps) => {
   return (
     <StyledLink href={href} $variant={variant} {...props}>
       {children}

@@ -82,7 +82,7 @@ const Name = styled.h1`
   }
 `
 
-const Divider = styled.div`
+const Divider = styled.div<{ $isDarkMode?: boolean }>`
   width: 100%;
   height: 1px;
   background-color: ${props => props.$isDarkMode ? 'rgba(255, 255, 255, 0.3)' : props.theme.colors.surface};

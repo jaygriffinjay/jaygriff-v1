@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { ButtonProps, StyledProps } from '../types'
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<StyledProps>`
   background-color: ${props => props.theme.colors.primary};
   color: ${props => props.theme.colors.background};
   padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
@@ -30,7 +31,7 @@ const StyledButton = styled.button`
   `}
 `
 
-const Button = ({ children, variant, ...props }) => {
+const Button = ({ children, variant = 'primary', ...props }: ButtonProps) => {
   return (
     <StyledButton $variant={variant} {...props}>
       {children}

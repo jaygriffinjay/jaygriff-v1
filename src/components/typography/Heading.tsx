@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { HeadingProps, StyledProps } from '../../types'
 
-const StyledHeading = styled.h1`
+const StyledHeading = styled.h1<StyledProps>`
   color: ${props => props.theme.colors.text};
   font-family: ${props => props.theme.typography.fontFamily.heading};
   font-weight: ${props => props.theme.typography.fontWeight.bold};
@@ -67,7 +68,7 @@ const StyledHeading = styled.h1`
   `}
 `
 
-const Heading = ({ as, variant = 'h1', margin, children, ...props }) => {
+const Heading = ({ as, variant = 'h1', margin, children, ...props }: HeadingProps) => {
   // If no 'as' prop is provided, derive it from the variant
   const element = as || variant
   

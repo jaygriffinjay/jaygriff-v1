@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { ListProps, StyledProps } from '../../types'
 
-const StyledList = styled.ul`
+const StyledList = styled.ul<StyledProps>`
   list-style: none;
   padding: 0;
   margin: 0;
@@ -69,7 +70,7 @@ const List = ({
   spacing = 'normal', 
   listStyle = 'disc',
   ...props 
-}) => {
+}: ListProps) => {
   // Use $ prefix for styled-components props to prevent them from being passed to DOM
   return (
     <StyledList $spacing={spacing} $listStyle={listStyle} {...props}>

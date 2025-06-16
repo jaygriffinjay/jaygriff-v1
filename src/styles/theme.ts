@@ -1,4 +1,6 @@
-const getTheme = (isDarkMode) => ({
+import { Theme } from '../types'
+
+const getTheme = (isDarkMode: boolean): Theme => ({
   colors: {
     // Primary brand colors
     primary: '#007AFF',
@@ -10,6 +12,7 @@ const getTheme = (isDarkMode) => ({
     surface: isDarkMode ? '#1C1C1E' : '#E5E5EA',
     text: isDarkMode ? '#FFFFFF' : '#000000',
     textLight: isDarkMode ? '#EBEBF5' : '#666666',
+    border: isDarkMode ? '#38383A' : '#D1D1D6',
     
     // Semantic colors
     success: '#34C759',

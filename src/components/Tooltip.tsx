@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { TooltipProps } from '../types'
 
 const TooltipContainer = styled.div`
   position: relative;
@@ -40,7 +41,7 @@ const TooltipItem = styled.li`
   }
 `
 
-const Tooltip = ({ trigger, items, isOpen, onClose, onItemClick }) => {
+const Tooltip = ({ trigger, items, isOpen, onClose, onItemClick }: TooltipProps) => {
   if (!isOpen) return trigger
 
   return (
@@ -52,7 +53,7 @@ const Tooltip = ({ trigger, items, isOpen, onClose, onItemClick }) => {
             <TooltipItem 
               key={index}
               onClick={() => {
-                onItemClick?.(item)
+                onItemClick?.(item.href)
                 onClose?.()
               }}
             >

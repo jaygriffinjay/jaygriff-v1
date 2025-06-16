@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Link from './typography/Link'
 import Tooltip from './Tooltip'
+import { BreadcrumbProps } from '../types'
 
 const BreadcrumbContainer = styled.nav`
   display: flex;
@@ -41,13 +42,14 @@ const Separator = styled.span`
   opacity: 0.5;
 `
 
-const Breadcrumb = ({ items }) => {
+const Breadcrumb = ({ items }: BreadcrumbProps) => {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false)
 
   useEffect(() => {
-    const handleClick = (event) => {
+    const handleClick = (event: MouseEvent) => {
       // Close tooltip if clicking anywhere except the ellipsis
-      if (!event.target.closest('.ellipsis-trigger')) {
+      const target = event.target as Element
+      if (!target.closest('.ellipsis-trigger')) {
         setIsTooltipOpen(false)
       }
     }
@@ -76,7 +78,7 @@ const Breadcrumb = ({ items }) => {
         if (index === 0 && shouldShowEllipsis) {
           return (
             <div key="group" style={{ display: 'flex', alignItems: 'center' }}>
-              <BreadcrumbItem href={item.path}>
+              <BreadcrumbItem href={item.href || '#'}>
                 {item.label}
               </BreadcrumbItem>
               <Separator>/</Separator>
@@ -89,14 +91,14 @@ const Breadcrumb = ({ items }) => {
                     ...
                   </EllipsisItem>
                 }
-                items={hiddenItems}
+                items={hiddenItems.map(item => ({ label: item.label, href: item.href || '#' }))}
                 isOpen={isTooltipOpen}
                 onClose={() => setIsTooltipOpen(false)}
-                onItemClick={(item) => window.location.href = item.path}
+                onItemClick={(href: string) => window.location.href = href}
               />
               <Separator>/</Separator>
               <BreadcrumbItem 
-                href={visibleItems[1].path}
+                href={visibleItems[1].href || '#'}
                 className="active"
               >
                 {visibleItems[1].label}
@@ -107,9 +109,9 @@ const Breadcrumb = ({ items }) => {
 
         if (!shouldShowEllipsis) {
           return (
-            <div key={item.path} style={{ display: 'flex', alignItems: 'center' }}>
+            <div key={item.href || index} style={{ display: 'flex', alignItems: 'center' }}>
               <BreadcrumbItem 
-                href={item.path}
+                href={item.href || '#'}
                 className={isLast ? 'active' : ''}
               >
                 {item.label}
