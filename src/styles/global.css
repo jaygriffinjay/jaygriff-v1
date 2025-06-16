@@ -22,6 +22,11 @@ body {
   color: #FFFFFF;
 }
 
+/* Add smooth transitions to all elements */
+* {
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+}
+
 /* Make images easier to work with */
 img {
   max-width: 100%;
