@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { TextProps, StyledProps } from '../../types'
 
-const StyledText = styled.p`
+const StyledText = styled.p<StyledProps>`
   color: ${props => props.theme.colors.text};
   font-family: ${props => props.theme.typography.fontFamily.body};
   font-size: ${props => props.theme.typography.fontSize.base};
@@ -34,7 +35,7 @@ const StyledText = styled.p`
   `}
 `
 
-const Text = ({ as = 'p', variant = 'body', children, ...props }) => {
+const Text = ({ as = 'p', variant = 'body', children, ...props }: TextProps) => {
   return (
     <StyledText as={as} $variant={variant} {...props}>
       {children}

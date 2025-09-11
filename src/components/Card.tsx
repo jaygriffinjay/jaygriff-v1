@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { CardProps } from '../types'
 
 const StyledCard = styled.div`
   background-color: ${props => props.theme.colors.surface};
@@ -8,7 +9,7 @@ const StyledCard = styled.div`
   margin: ${props => props.theme.spacing.md};
 `
 
-const Card = ({ title, children, ...props }) => {
+const Card = ({ title, children, ...props }: CardProps) => {
   return (
     <StyledCard {...props}>
       {title && <h2>{title}</h2>}

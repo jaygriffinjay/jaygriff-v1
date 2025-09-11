@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+/* Global scale factor - adjust this value to scale the entire site */
+:root {
+  --global-scale: 0.8; /* 0.8 = 80% size, 1.0 = 100% size */
+}
+
 /* Set core body defaults */
 body {
   min-height: 100vh;
@@ -14,12 +19,22 @@ body {
   background-color: #FFFFFF; /* Light mode default */
   color: #000000; /* Light mode default */
   transition: background-color 250ms ease, color 250ms ease;
+  /* Apply global scaling */
+  transform: scale(var(--global-scale));
+  transform-origin: top left;
+  width: calc(100% / var(--global-scale));
+  height: calc(100vh / var(--global-scale));
 }
 
 /* Dark mode styles */
 .dark-mode body {
   background-color: #000000;
   color: #FFFFFF;
+}
+
+/* Add smooth transitions to all elements */
+* {
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
 }
 
 /* Make images easier to work with */

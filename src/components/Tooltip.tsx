@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { TooltipProps } from '../types'
+import Link from './typography/Link'
 
 const TooltipContainer = styled.div`
   position: relative;
@@ -27,20 +29,26 @@ const TooltipList = styled.ul`
 
 const TooltipItem = styled.li`
   padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.sm};
-  color: ${props => props.theme.colors.textLight};
   font-size: ${props => props.theme.typography.fontSize.sm};
   cursor: pointer;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 
+  a {
+    color: ${props => props.theme.colors.textLight};
+    transition: color ${props => props.theme.transitions.normal};
+  }
+
   &:hover {
-    color: ${props => props.theme.colors.primary};
     background-color: ${props => props.theme.colors.background};
+    a {
+      color: ${props => props.theme.colors.primary} !important;
+    }
   }
 `
 
-const Tooltip = ({ trigger, items, isOpen, onClose, onItemClick }) => {
+const Tooltip = ({ trigger, items, isOpen, onClose, onItemClick }: TooltipProps) => {
   if (!isOpen) return trigger
 
   return (
@@ -49,14 +57,10 @@ const Tooltip = ({ trigger, items, isOpen, onClose, onItemClick }) => {
       <TooltipContent>
         <TooltipList>
           {items.map((item, index) => (
-            <TooltipItem 
-              key={index}
-              onClick={() => {
-                onItemClick?.(item)
-                onClose?.()
-              }}
-            >
-              {item.label}
+            <TooltipItem key={index}>
+              <Link href={item.href} style={{ color: 'inherit', textDecoration: 'none', display: 'block', width: '100%' }}>
+                {item.label}
+              </Link>
             </TooltipItem>
           ))}
         </TooltipList>

@@ -1,16 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
-import { ThemeProvider } from './contexts/ThemeContext'
-import { useTheme } from './contexts/ThemeContext'
-import { getTheme } from './styles/theme'
+import { ThemeProvider, useTheme } from './contexts/ThemeContext'
 import App from './App'
 import './styles/global.css'
 
 // Create a wrapper component that provides the styled-components theme
 const ThemedApp = () => {
-  const { isDarkMode } = useTheme()
-  const theme = getTheme(isDarkMode)
+  const { theme } = useTheme()
   
   return (
     <StyledThemeProvider theme={theme}>
@@ -19,7 +16,10 @@ const ThemedApp = () => {
   )
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const rootElement = document.getElementById('root')
+if (!rootElement) throw new Error('Failed to find the root element')
+
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <ThemeProvider>
       <ThemedApp />

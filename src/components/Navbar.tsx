@@ -12,6 +12,7 @@ const NavWrapper = styled.div`
   width: 100%;
   padding: ${props => props.theme.spacing.lg} 0;
   background-color: ${props => props.theme.colors.background};
+  transition: background-color ${props => props.theme.transitions.normal};
 `
 
 const BreadcrumbWrapper = styled.div`
@@ -82,11 +83,12 @@ const Name = styled.h1`
   }
 `
 
-const Divider = styled.div`
+const Divider = styled.div<{ $isDarkMode?: boolean }>`
   width: 100%;
   height: 1px;
   background-color: ${props => props.$isDarkMode ? 'rgba(255, 255, 255, 0.3)' : props.theme.colors.surface};
   margin: 0;
+  transition: background-color ${props => props.theme.transitions.normal};
 `
 
 const NavLinks = styled.div`
