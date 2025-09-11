@@ -1,7 +1,16 @@
 import styled from 'styled-components'
-import { Card, Container, Heading, Text, Link, List } from '../components'
+import { Heading, Text, Link, List } from '../components'
 import favicon from '../assets/logos/favicon.svg'
 import golfballgarageLogo from '../assets/logos/golfballgaragelogo.svg'
+
+const PageContent = styled.div`
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: ${props => props.theme.spacing.lg};
+  border-radius: ${props => props.theme.borderRadius.lg};
+  border: 1px solid ${props => props.theme.colors.border};
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+`
 
 const ProjectLogo = styled.img`
   width: 48px;
@@ -14,17 +23,24 @@ const ProjectLogo = styled.img`
   }
 `
 
-const ProjectCard = styled(Card)`
+const ProjectSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding: ${props => props.theme.spacing.md};
+  margin-bottom: ${props => props.theme.spacing.lg};
+  border-bottom: 1px solid ${props => props.theme.colors.border};
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
 `
 
 function Projects() {
   return (
-    <Container>
-      <Card>
-        <Heading as="h1" variant="h1">Projects</Heading>
+    <PageContent>
+      <Heading as="h1" variant="h1">Projects</Heading>
         <Text variant="lead">
           A collection of my projects, from personal websites to client work.
         </Text>
@@ -33,7 +49,7 @@ function Projects() {
           <Heading as="h2" variant="h2">Active Projects</Heading>
           <List listStyle="none" spacing="loose" style={{ marginTop: '1rem' }}>
             <li>
-              <ProjectCard>
+              <ProjectSection>
                 <ProjectLogo src={favicon} alt="Personal Website Logo" />
                 <Heading as="h3" variant="h3">
                   <Link href="/projects/meta">This Website</Link>
@@ -48,11 +64,11 @@ function Projects() {
                     <Text variant="small"> - Visual documentation of all UI components</Text>
                   </li>
                 </List>
-              </ProjectCard>
+              </ProjectSection>
             </li>
 
             <li>
-              <ProjectCard>
+              <ProjectSection>
                 <ProjectLogo src={golfballgarageLogo} alt="Golf Ball Garage Logo" />
                 <Heading as="h3" variant="h3">
                   <Link href="/projects/golfballgarage">Golf Ball Garage</Link>
@@ -66,7 +82,7 @@ function Projects() {
                     Visit Site →
                   </Link>
                 </div>
-              </ProjectCard>
+              </ProjectSection>
             </li>
           </List>
         </div>
@@ -77,9 +93,8 @@ function Projects() {
           <List>...</List>
         </div>
         */}
-      </Card>
-    </Container>
-  )
+      </PageContent>
+    )
 }
 
 export default Projects 

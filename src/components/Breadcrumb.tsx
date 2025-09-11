@@ -1,3 +1,7 @@
+const BreadcrumbGroup = styled.div`
+  display: flex;
+  align-items: center;
+`
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Link from './typography/Link'
@@ -21,10 +25,6 @@ const BreadcrumbItem = styled(Link)`
     color: ${props => props.theme.colors.primary};
   }
 
-  &.active {
-    color: ${props => props.theme.colors.text};
-    pointer-events: none;
-  }
 `
 
 const EllipsisItem = styled.span`
@@ -70,59 +70,57 @@ const Breadcrumb = ({ items }: BreadcrumbProps) => {
     ? items.slice(1, -1) 
     : []
 
+  // Helper to render breadcrumb items
+  const renderBreadcrumbItems = () => {
+    return visibleItems.map((item, index) => {
+      const isLast = index === visibleItems.length - 1
+
+      if (index === 0 && shouldShowEllipsis) {
+        return (
+          <BreadcrumbGroup key="group">
+            <BreadcrumbItem href={item.path || '#'}>
+              {item.label}
+            </BreadcrumbItem>
+            <Separator>/</Separator>
+            <Tooltip
+              trigger={
+                <EllipsisItem 
+                  className="ellipsis-trigger"
+                  onClick={() => setIsTooltipOpen(!isTooltipOpen)}
+                >
+                  ...
+                </EllipsisItem>
+              }
+              items={hiddenItems.map(item => ({ label: item.label, href: item.path || '#' }))}
+              isOpen={isTooltipOpen}
+              onClose={() => setIsTooltipOpen(false)}
+            />
+            <Separator>/</Separator>
+            <BreadcrumbItem href={visibleItems[1].path || '#'}>
+              {visibleItems[1].label}
+            </BreadcrumbItem>
+          </BreadcrumbGroup>
+        )
+      }
+
+      if (!shouldShowEllipsis) {
+        return (
+          <BreadcrumbGroup key={item.path || index}>
+            <BreadcrumbItem href={item.path || '#'}>
+              {item.label}
+            </BreadcrumbItem>
+            {!isLast && <Separator>/</Separator>}
+          </BreadcrumbGroup>
+        )
+      }
+
+      return null
+    })
+  }
+
   return (
     <BreadcrumbContainer>
-      {visibleItems.map((item, index) => {
-        const isLast = index === visibleItems.length - 1
-
-        if (index === 0 && shouldShowEllipsis) {
-          return (
-            <div key="group" style={{ display: 'flex', alignItems: 'center' }}>
-              <BreadcrumbItem href={item.href || '#'}>
-                {item.label}
-              </BreadcrumbItem>
-              <Separator>/</Separator>
-              <Tooltip
-                trigger={
-                  <EllipsisItem 
-                    className="ellipsis-trigger"
-                    onClick={() => setIsTooltipOpen(!isTooltipOpen)}
-                  >
-                    ...
-                  </EllipsisItem>
-                }
-                items={hiddenItems.map(item => ({ label: item.label, href: item.href || '#' }))}
-                isOpen={isTooltipOpen}
-                onClose={() => setIsTooltipOpen(false)}
-                onItemClick={(href: string) => window.location.href = href}
-              />
-              <Separator>/</Separator>
-              <BreadcrumbItem 
-                href={visibleItems[1].href || '#'}
-                className="active"
-              >
-                {visibleItems[1].label}
-              </BreadcrumbItem>
-            </div>
-          )
-        }
-
-        if (!shouldShowEllipsis) {
-          return (
-            <div key={item.href || index} style={{ display: 'flex', alignItems: 'center' }}>
-              <BreadcrumbItem 
-                href={item.href || '#'}
-                className={isLast ? 'active' : ''}
-              >
-                {item.label}
-              </BreadcrumbItem>
-              {!isLast && <Separator>/</Separator>}
-            </div>
-          )
-        }
-
-        return null
-      })}
+      {renderBreadcrumbItems()}
     </BreadcrumbContainer>
   )
 }

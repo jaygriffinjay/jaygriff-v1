@@ -187,13 +187,13 @@ export interface TooltipProps {
   }>
   isOpen: boolean
   onClose: () => void
-  onItemClick: (href: string) => void
+  onItemClick?: (href: string) => void
 }
 
 export interface BreadcrumbProps {
   items: Array<{
     label: string
-    href?: string
+    path?: string
   }>
 }
 
