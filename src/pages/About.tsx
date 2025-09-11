@@ -47,7 +47,7 @@ function About() {
       <ProfileImage src={meImage} alt="Jay Griffin" />
       <Heading as="h1" variant="h1">About</Heading>
       <Text variant="lead">
-        I am a software developer and accountant interested in full-stack development and computer infrastructure.
+        I am a software developer that wants to create simple and beautiful tools that are a joy to use. Ironically, I started making software after being interested in the overly complex and technical. It was only later that my ultimate goal became to abstract away technical complexity into elegant, functional tools—whether they're websites, apps, or APIs. I believe in the paradox that while the backend should be invisible to users and design and user experience is important, it's often the foundation that enables transformation, much like how AI backends are reshaping our world today.
       </Text>
 
       <ContentSection>
@@ -77,17 +77,6 @@ function About() {
           <li>
             <Text variant="body">
               Linux, homelab, hosting, networking, hardware, virtualization, containers, container orchestration, automation
-            </Text>
-          </li>
-        </StyledList>
-      </ContentSection>
-
-      <ContentSection>
-        <Heading as="h2" variant="h2">Accounting Interests</Heading>
-        <StyledList listStyle="disc" spacing="normal">
-          <li>
-            <Text variant="body">
-              Tax Accounting, Bookkeeping, Excel, PowerQuery
             </Text>
           </li>
         </StyledList>
