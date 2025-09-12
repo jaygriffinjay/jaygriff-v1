@@ -130,7 +130,7 @@ export interface HeadingProps {
 
 export interface TextProps {
   as?: 'p' | 'span' | 'div'
-  variant?: 'body' | 'small' | 'caption' | 'lead'
+  variant?: 'body' | 'small' | 'caption' | 'lead' | 'strikethrough'
   children: React.ReactNode
 }
 

@@ -47,11 +47,11 @@ function About() {
       <ProfileImage src={meImage} alt="Jay Griffin" />
       <Heading as="h1" variant="h1">About</Heading>
       <Text variant="lead">
-        I'm a software developer currently making custom React applications from scratch. I'm interested in making all kinds of software, but my main focus is on the design of web apps and the computer infrastructure to support them at scale.
+        Welcome to my website where I publish my work and thoughts. I'm a software developer currently making TypeScript and React applications, mostly websites and web apps.
       </Text>
 
       <ContentSection>
-        <Heading as="h2" variant="h2">Development Interests</Heading>
+        <Heading as="h2" variant="h2">Development Experience</Heading>
         <StyledList listStyle="disc" spacing="normal">
           <li>
             <Text variant="body">
@@ -60,7 +60,7 @@ function About() {
           </li>
           <li>
             <Text variant="body">
-              <b>Current Tools:</b> React, css-in-js, Node, Vite, Cursor.ai
+              <b>Current Tools:</b> React, css-in-js, Node, Vite, Vercel, Git, Github, coding with AI assistance but <Link href="https://sive.rs/abdicate" target="_blank" rel="noopener noreferrer">not too much.</Link>
             </Text>
           </li>
           <li>
@@ -68,15 +68,9 @@ function About() {
               <b>Previous Tools:</b> Flask, Django, Hugo, Jekyll, Wordpress, Tailwind, Next.js, DaisyUI
             </Text>
           </li>
-        </StyledList>
-      </ContentSection>
-
-      <ContentSection>
-        <Heading as="h2" variant="h2">Computer Infrastructure</Heading>
-        <StyledList listStyle="disc" spacing="normal">
           <li>
             <Text variant="body">
-              Linux, homelab, hosting, networking, hardware, virtualization, containers, container orchestration, automation
+              <b>Infrastructure:</b> Linux, homelabbing, self-hosting, hosted solutions, VPS and cloud providers, APIs, virtualization, containers
             </Text>
           </li>
         </StyledList>

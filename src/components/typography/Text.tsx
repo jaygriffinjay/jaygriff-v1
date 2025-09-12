@@ -33,6 +33,11 @@ const StyledText = styled.p<StyledProps>`
     line-height: ${props.theme.typography.lineHeight.relaxed};
     color: ${props.theme.colors.text};
   `}
+
+  ${props => props.$variant === 'strikethrough' && `
+    text-decoration: line-through;
+    color: ${props.theme.colors.textLight};
+  `}
 `
 
 const Text = ({ as = 'p', variant = 'body', children, ...props }: TextProps) => {
