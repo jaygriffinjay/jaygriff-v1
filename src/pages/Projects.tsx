@@ -53,18 +53,12 @@ function Projects() {
               <ProjectSection>
                 <ProjectLogo src={favicon} alt="Personal Website Logo" />
                 <Heading as="h3" variant="h3">
-                  <Link href="/projects/meta">This Website</Link>
+                  <Link href="/projects/meta">jaygriff.com</Link>
                 </Heading>
                 <Text variant="body">
                   The project that powers this website. Includes component library, 
                   architecture decisions, and other meta-documentation.
                 </Text>
-                <List listStyle="disc" spacing="normal" style={{ marginTop: '0.5rem' }}>
-                  <li>
-                    <Link href="/projects/meta/components">Component Library</Link>
-                    <Text variant="small"> - Visual documentation of all UI components</Text>
-                  </li>
-                </List>
               </ProjectSection>
             </li>
 
