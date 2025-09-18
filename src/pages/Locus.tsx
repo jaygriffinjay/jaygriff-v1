@@ -57,6 +57,12 @@ function Locus() {
           View on Chrome Web Store →
         </Link>
       </div>
+      <div style={{ marginTop: '2rem' }}>
+        <Heading as="h2" variant="h2">Support</Heading>
+        <Text variant="body" style={{ marginTop: '0.5rem' }}>
+          For support, comments, or questions please email <Link href="mailto:jay@jaygriff.com">jay@jaygriff.com</Link>.
+        </Text>
+      </div>
     </PageContent>
   )
 }

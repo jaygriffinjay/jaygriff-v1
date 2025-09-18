@@ -70,7 +70,7 @@ function About() {
           </li>
           <li>
             <Text variant="body">
-              <b>Infrastructure:</b> Linux, homelabbing, self-hosting, hosted solutions, VPS and cloud providers, APIs, virtualization, containers
+              <b>Infrastructure:</b> My goal is to make smart backends that stay working even at scale. To do this I use a combination of Linux, homelabbing, self-hosting, hosted solutions, VPS and cloud providers, APIs, virtualization, containers and more.
             </Text>
           </li>
         </StyledList>
