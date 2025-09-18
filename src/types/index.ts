@@ -126,12 +126,14 @@ export interface HeadingProps {
   variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   margin?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   children: React.ReactNode
+  style?: React.CSSProperties
 }
 
 export interface TextProps {
   as?: 'p' | 'span' | 'div'
   variant?: 'body' | 'small' | 'caption' | 'lead' | 'strikethrough'
   children: React.ReactNode
+  style?: React.CSSProperties
 }
 
 export interface LinkProps {

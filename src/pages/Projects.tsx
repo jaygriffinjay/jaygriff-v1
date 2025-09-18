@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { Heading, Text, Link, List } from '../components'
 import favicon from '../assets/logos/favicon.svg'
 import golfballgarageLogo from '../assets/logos/golfballgaragelogo.svg'
+import locusLogo from '../assets/logos/locuslogo.png'
 
 const PageContent = styled.div`
   max-width: 800px;
@@ -80,6 +81,22 @@ function Projects() {
                 <div style={{ marginTop: '0.5rem' }}>
                   <Link href="https://golfballgarage.com" target="_blank" rel="noopener noreferrer">
                     Visit Site →
+                  </Link>
+                </div>
+              </ProjectSection>
+            </li>
+            <li>
+              <ProjectSection>
+                <ProjectLogo src={locusLogo} alt="Locus Logo" />
+                <Heading as="h3" variant="h3">
+                  <Link href="/projects/locus">Locus</Link>
+                </Heading>
+                <Text variant="body">
+                  A high-performance bookmark finder and launcher for Chrome.
+                </Text>
+                <div style={{ marginTop: '0.5rem' }}>
+                  <Link href="#" target="_blank" rel="noopener noreferrer">
+                    View on Chrome Web Store →
                   </Link>
                 </div>
               </ProjectSection>
