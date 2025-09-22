@@ -47,17 +47,15 @@ function Projects() {
         </Text>
 
         <div style={{ marginTop: '2rem' }}>
-          <Heading as="h2" variant="h2">Active Projects</Heading>
           <List listStyle="none" spacing="loose" style={{ marginTop: '1rem' }}>
             <li>
               <ProjectSection>
                 <ProjectLogo src={favicon} alt="Personal Website Logo" />
                 <Heading as="h3" variant="h3">
-                  <Link href="/projects/meta">jaygriff.com</Link>
+                  <Link href="/projects/thiswebsite">jaygriff.com</Link>
                 </Heading>
                 <Text variant="body">
-                  The project that powers this website. Includes component library, 
-                  architecture decisions, and other meta-documentation.
+                  The project that powers this website.
                 </Text>
               </ProjectSection>
             </li>
@@ -69,8 +67,7 @@ function Projects() {
                   <Link href="/projects/golfballgarage">Golf Ball Garage</Link>
                 </Heading>
                 <Text variant="body">
-                  A platform for buying and selling golf balls. Built with modern web technologies
-                  and a focus on user experience.
+                  A website for buying pre-owned golf balls!
                 </Text>
                 <div style={{ marginTop: '0.5rem' }}>
                   <Link href="https://golfballgarage.com" target="_blank" rel="noopener noreferrer">

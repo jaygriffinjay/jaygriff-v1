@@ -189,10 +189,10 @@ const Navbar = () => {
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ')
       
-      // Special case for meta project routes
-      if (segment === 'meta' && pathSegments[index + 1] === 'components') {
+      // Special case for thiswebsite project routes
+      if (segment === 'thiswebsite' && pathSegments[index + 1] === 'components') {
         label = 'Component Library'
-      } else if (segment === 'meta') {
+      } else if (segment === 'thiswebsite') {
         label = 'This Website'
       }
 

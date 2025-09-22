@@ -32,7 +32,7 @@ function MetaProject() {
       </Text>
       <List listStyle="disc" spacing="normal" style={{ marginTop: '1rem' }}>
         <li>
-          <Link href="/projects/meta/components">Component Library</Link>
+          <Link href="/projects/thiswebsite/components">Component Library</Link>
           <Text variant="small"> - Visual documentation of all UI components</Text>
         </li>
         {/* Future meta documentation links can go here */}

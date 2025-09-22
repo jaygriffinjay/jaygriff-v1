@@ -47,7 +47,7 @@ function About() {
       <ProfileImage src={meImage} alt="Jay Griffin" />
       <Heading as="h1" variant="h1">About</Heading>
       <Text variant="lead">
-        Welcome to my website where I publish my work and thoughts. I'm a software developer currently making TypeScript and React applications, mostly websites and web apps.
+        Welcome to my website where I publish my work and thoughts. I'm a software developer currently making mostly TypeScript and React applications.
       </Text>
 
       <ContentSection>
