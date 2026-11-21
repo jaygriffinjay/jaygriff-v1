@@ -1,6 +1,8 @@
-# [jaygriff.com](https://jaygriff.com)
+# jaygriff.com, version 1
 
-This is the repo for my personal website. My website is open source in order to show my work and get feedback!  
+This is an old version of my website, kept running at **[v1.jaygriff.com](https://v1.jaygriff.com)**. The current site is **[jaygriff.com](https://jaygriff.com)**.
+
+From May to September 2025: a single-page React app, open source to show my work and get feedback.
 
 ## Tech Stack
 
@@ -9,3 +11,9 @@ This is the repo for my personal website. My website is open source in order to 
 ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
+## Running it
+
+```bash
+npm install
+npm run dev
+```
